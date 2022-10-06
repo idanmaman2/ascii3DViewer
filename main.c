@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include "objReader.h"
 
-
+// ____             _   _       ___
+//|  _ \  ___ _ __ | |_| |__   |_ _|_ __ ___   __ _  __ _  ___
+//| | | |/ _ \ '_ \| __| '_ \   | || '_ ` _ \ / _` |/ _` |/ _ \
+//| |_| |  __/ |_) | |_| | | |  | || | | | | | (_| | (_| |  __/
+//|____/ \___| .__/ \__|_| |_| |___|_| |_| |_|\__,_|\__, |\___|
+//           |_|                                    |___/
 void printVertex(vertex * ve){
     printf("v : x: %f , y:%f , z:%f\n",ve->x,ve->y,ve->z);
 }
@@ -13,6 +18,7 @@ void printFace(face * fe,vector * ver){
     printf("\n");
 }
 
+size_t buffer [100][100];
 
 
 int main() {
