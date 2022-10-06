@@ -10,9 +10,9 @@
 #include "DataStructers/vector.h"
 
 typedef struct vertex {
-    float x ;
-    float y;
-    float z ;
+    double x ;
+    double y;
+    double z ;
 } vertex;
 
 typedef struct face {
