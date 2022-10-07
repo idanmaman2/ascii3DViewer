@@ -10,3 +10,8 @@ Depth image to 3d models (obj + torus knot )
 <img width="1470" alt="Screen Shot 2022-10-07 at 14 28 22" src="https://user-images.githubusercontent.com/90776557/194543525-f63a978e-9573-49d5-b77d-4487d535dfcf.png">
 <img width="1469" alt="Screen Shot 2022-10-07 at 14 29 28" src="https://user-images.githubusercontent.com/90776557/194543556-66192588-e21e-4f9d-a2f4-3b8e35006d3f.png">
 <img width="1470" alt="Screen Shot 2022-10-07 at 14 30 33" src="https://user-images.githubusercontent.com/90776557/194543576-23e436d6-c18e-4a36-9093-8645e8d3e012.png">
+
+
+<img width="1469" alt="Screen Shot 2022-10-07 at 14 35 43" src="https://user-images.githubusercontent.com/90776557/194544246-42930fce-7fab-4a73-b17c-a2b6d6bb5990.png">
+<img width="1470" alt="Screen Shot 2022-10-07 at 14 35 20" src="https://user-images.githubusercontent.com/90776557/194544262-5c80fad5-27c6-4619-ad7a-12b3dc65b7e4.png">
+<img width="1470" alt="Screen Shot 2022-10-07 at 14 34 20" src="https://user-images.githubusercontent.com/90776557/194544293-e27e304e-db2d-430e-9aa8-c29204b5717f.png">
