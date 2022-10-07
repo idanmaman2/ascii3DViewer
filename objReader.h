@@ -36,10 +36,12 @@ struct vertex  *  atov (char * ascii ){
     for(int i=0;i<3;i++){
         if(!tokens[i]){
             fprintf(stderr,"bad file 1");
+            exit(-1);
         }
     }
     if(strtok(NULL, ",/0")){
         fprintf(stderr,"bad file 2 ");
+        exit(-1);
     }
     ve ->x = atof(tokens[0]);
     ve->y= atof(tokens[1]);

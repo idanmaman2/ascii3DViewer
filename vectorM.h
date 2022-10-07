@@ -33,7 +33,7 @@ vectorM crossProduct(vectorM v1 , vectorM v2 ){
     } ;
     return v;
 }
-float dotProduct(vectorM v1 , vectorM v2 ){
+double dotProduct(vectorM v1 , vectorM v2 ){
     return v1.x*v2.x + v1.y * v2.y + v1.z * v2.z;
 
 }
@@ -42,13 +42,13 @@ vertex rotate(vertex vec,vectorM axsis , double angle ){
     double cosa = cos(angle ) , sina = sin(angle);
     double  x = axsis.x, y = axsis.y , z=axsis.z ,x2 = x*x ,y2 =y*y, z2 = z*z;
     double tx = vec.x, ty = vec.y ,tz =vec.z ;
-
     vertex vecN = {
             .x=(x2*(1-cosa)+ cosa )*tx +  (x*y*(1-cosa)-sina * z )*ty + (x*z*(1-cosa)+y*sina)*tz ,
             .y=(x*y*(1-cosa)+z*sina)*tx + (y2*(1-cosa)+cosa)*ty + (y*z*(1-cosa)-x*sina)*tz ,
            .z= (x*z*(1-cosa)-y*sina)*tx + (y*z*(1-cosa)+x*sina)*ty + (z2*(1-cosa)+cosa)*tz
 
     };
+
     return vecN;
 
 }
