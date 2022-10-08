@@ -45,3 +45,7 @@ ship rotated 5
 <img width="1470" alt="Screen Shot 2022-10-07 at 16 45 13" src="https://user-images.githubusercontent.com/90776557/194568398-83e33a1e-69d5-4239-aa17-4a523f94b4da.png">
 ship rotated 6 
 <img width="1470" alt="Screen Shot 2022-10-07 at 16 47 01" src="https://user-images.githubusercontent.com/90776557/194568821-fc95cc56-faaf-42d5-8ae3-70af1655b4eb.png">
+
+# credits : 
+final result compare - took the obj models and compared the results  (on the same project idea diffrent way of implamntaion and technique ) : https://github.com/autopawn/3d-ascii-viewer
+
