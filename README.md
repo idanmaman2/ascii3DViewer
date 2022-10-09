@@ -20,8 +20,7 @@
 # Examples
 <img width="1470" alt="Screen Shot 2022-10-09 at 14 38 40" src="https://user-images.githubusercontent.com/90776557/194754872-243e7cfb-8e9b-411f-8470-94da61566ec1.png">
 <img width="1463" alt="Screen Shot 2022-10-09 at 14 28 08" src="https://user-images.githubusercontent.com/90776557/194754874-dcfce42c-e193-45c5-a7c0-9d491f284b72.png">
-![photo_2022-10-09_14-23-26](https://user-images.githubusercontent.com/90776557/194754876-779a213c-7fd1-4989-bc0f-fbb19ea11e97.jpg)
-<img width="1469" alt="Screen Shot 2022-10-09 at 14 20 33" src="https://user-images.githubusercontent.com/90776557/194754879-c7d0a48a-9330-4f8f-b06a-3e25572a3ac8.png">
+<img width="1469" alt="Screen Shot 2022-10-09 at 14 20 33" src="https://user-images.githubusercontent.com/90776557/194754938-36d821a5-f0d1-421b-9142-80443ebb1be4.png">
 
 
 # credits : 
