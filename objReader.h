@@ -4,7 +4,7 @@
 
 #ifndef ASCII3DVIEWER_OBJREADER_H
 #define ASCII3DVIEWER_OBJREADER_H
-
+//check the obj reader
 #include <stdio.h>
 #include <sys/fcntl.h>
 #include "DataStructers/vector.h"
@@ -25,6 +25,16 @@ typedef  struct  obj {
     vector * vertexes;
 }obj;
 
+void printVertex(vertex * ve){
+    printf("v : x: %f , y:%f , z:%f\n",ve->x,ve->y,ve->z);
+}
+void printFace(face * fe,vector * ver){
+    for(size_t i=0;i<fe->sidesNum;i++){
+        vertex *  vi = getIndexVector(fe->sides_array[i],ver);
+        printf("side %d.%d , point : %f %f %f ",i+1 ,fe->sides_array[i],vi->x,vi->y,vi->z);
+    }
+    printf("\n");
+}
 
 struct vertex  *  atov (char * ascii ){
   vertex * ve = (struct vertex * ) malloc(sizeof(struct  vertex));
@@ -93,11 +103,11 @@ obj getObjData(char *  path ){
                     case 't':
                         break;
                     default:
-                        continue;
+                        break;
                 }
                 break;
             default:
-                continue;
+                break;
         }
     }
     obj ob;
