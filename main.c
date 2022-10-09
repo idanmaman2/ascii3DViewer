@@ -137,8 +137,6 @@ mapPack map(minVer z){
 
 }
 
-
-
 void findMin(face * fc , minVer * min){
     if(isInsideFace(min->y , min->x , *fc , min->vertex)){
         // add check that they not colinear
@@ -147,7 +145,6 @@ void findMin(face * fc , minVer * min){
         vertex p3 =*((vertex * )getIndexVector(fc->sides_array[2]-1,min->vertex));
         double val = getZFromPlane(p1,p2,p3,min->y,min->x);
         val +=pushZ;
-        val = abs(val); // it makes you see all the model - big cheat that i need to fix fast ß
         if(!min->changed ||(val >= 0 &&val < min->min))
         {
             min->min=val ;
@@ -169,6 +166,25 @@ void scaleModelI(vertex * data , double * scale){
     data->z*=*scale;
 }
 
+double getMinZValue(obj  data ){ // To align the 3d object to be at good starting point woithout messing around
+
+    double min = INT32_MAX ;
+    for(size_t i =0 ; i< data.faces->len ; i++){
+        face * fc = getIndexVector(i , data.faces);
+        for(size_t j=0 ; j< fc->sidesNum ; j++ ){
+            if(((vertex * )getIndexVector(fc->sides_array[j]-1,data.vertexes))->z< min)
+                min=((vertex * )getIndexVector(fc->sides_array[j]-1,data.vertexes))->z;
+        }
+
+    }
+    return  min ;
+
+
+
+}
+
+
+
 
 int main() {
     struct angleAxsis ax2 ;
@@ -178,13 +194,15 @@ int main() {
             .y=0
     };
     double angle = 0;
-    obj data = getObjData("//Users//idang//CLionProjects//ascii3DViewer//models//car.obj");
+    obj data = getObjData("//Users//idang//CLionProjects//ascii3DViewer//models//mr-president.obj");
 
 
     printf("\x1b[2J");
     struct pollfd pfd = { .fd = 0, .events = POLLIN };
     set_term_quiet_input();
     angle = 1 ;
+    pushZ = getMinZValue(data);
+    pushZ = (pushZ < 0 ? -pushZ : 0 );
     while (true) {
         if (poll(&pfd, 1, 0)>0) {
             int c = getchar();
