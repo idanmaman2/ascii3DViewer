@@ -24,16 +24,25 @@
 #include "vectorM.h"
 
 #define WIDTH 200
-#define  HEIGHT 150
-#define GREEN 32
-#define RED 31
-#define YELLOW 33
-#define  PURPLE 35
-#define CYAN 36
-#define WHITE 37
+#define  HEIGHT 200
+#define GREEN "32m"
+#define RED "31m"
+#define BLUE "32m"
+#define YELLOW "33m"
+#define  PURPLE "35m"
+#define CYAN "36m"
+#define BLUE2 "34;1m"
+#define GREY "30;1m"
+#define GREEN2 "32;1m"
+#define RED2 "31;1m"
+#define YELLOW2 "33;1m"
+#define  PURPLE2 "35;1m"
+#define CYAN2 "36;1m"
+#define WHITE "37m"
 
 
-#define  colorLen 5
+
+#define  colorLen 12
 #define mapLen 12
 
 #define MaxChar ' '
@@ -53,7 +62,7 @@ double  scale =1;
 double scaleModel =  0.1;
 
 const char depth [] =".,-~:;=!*#$@";
-const short colors [] = {CYAN , PURPLE ,GREEN, YELLOW,RED  };
+const char *  colors [] = {GREEN,GREEN2,CYAN , CYAN2 , PURPLE,PURPLE2 ,YELLOW,YELLOW2,RED,RED2,BLUE, BLUE2,};
 
 typedef struct angleAxsis{
     double angle ;
@@ -64,16 +73,17 @@ typedef struct minVer{
     double y ;
     double x ;
     double min ;
-    short changed ;
+    char changed ;
     vector * vertex ;
 }minVer;
 
+typedef  struct  mapPack{
+    char * color ;
+    char depth ; // max 255 depth
 
-
-
-
-void changeColor(int color ) {
-    printf("\033[0;%dm",color);
+}mapPack;
+void changeColor(char *  color ) {
+    printf("\033[0;%s",color);
 }
 
 void set_term_quiet_input()
@@ -117,15 +127,17 @@ short isInsideFace( double y , double x , face f  , vector * vertexes ){
 
 }
 
-char map(minVer z){
+mapPack map(minVer z){
     double  sz = z.min * scale ;
-    return !z.changed || sz < 0   ? MaxChar : depth[(int)fmin(sz,mapLen-1)];
+    mapPack  pack = {
+            .depth = !z.changed || sz < 0   ? MaxChar : depth[(int)fmin(sz,mapLen-1)],
+            .color = !z.changed || sz < 0  ? Maxcolor : colors[(int)fmin(sz,colorLen-1)]
+    };
+    return  pack ;
+
 }
 
-char mapColor(minVer z){
-    double  sz = z.min * scale ;
-    return !z.changed || sz < 0  ? Maxcolor : colors[(int)fmin(sz,colorLen-1)];
-}
+
 
 void findMin(face * fc , minVer * min){
     if(isInsideFace(min->y , min->x , *fc , min->vertex)){
@@ -166,7 +178,7 @@ int main() {
             .y=0
     };
     double angle = 0;
-    obj data = getObjData("//Users//idang//CLionProjects//ascii3DViewer//models//cube.obj");
+    obj data = getObjData("//Users//idang//CLionProjects//ascii3DViewer//models//car.obj");
 
 
     printf("\x1b[2J");
@@ -280,8 +292,9 @@ int main() {
                 min.y = y + pushY ;
                 min.x = x  + pushX ;
                 forEachIter(findMin, data.faces, &min);
-                changeColor(mapColor(min));
-                printf("%3c",map(min));
+                mapPack  pack = map(min);
+                changeColor(pack.color);
+                printf("%3c",pack.depth);
                 fflush(stdout);
             }
             putchar(10);
