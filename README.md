@@ -1,19 +1,15 @@
 # ascii3DViewer - by IDHM 
-( for much better 3d enigne checkout my another project : https://github.com/idanmaman2/ISE5782_6941_3797  that uses ray tracing ) 
+For a more complete 3d engine implementation checkout my other project: https://github.com/idanmaman2/ISE5782_6941_3797 that uses ray tracing.
 # Depth image to 3d models (obj + torus knot ) 
 
 
-# the Idea : 
-> the idea of the project is based on the  game : "Pin art 3d "
+# The Idea
+The idea of the project is based on the game "Pin art 3d".
 
+Unlike many 3D engines that use triangles similarity or ray tracing, here I take a simpler approach
+by just sending straight rays from the XY plane and mapping the Z value to color and char.
 
-
-
-
-> not like any other 3d engine that using triangles imagnation or ray tracing mine is way faster and much more simple and cool
-> the whole idea is to send straight rays from the xy plane and map the z value to color and char . 
-> and then print it 
-> the program unabling rotating the shape in all axsises  and moving it in space  . 
+The program enables rotating the shape in all axes and moving it in space. 
 
 
 
@@ -25,6 +21,6 @@
 
 
 
-# credits : 
-final result compare - took the obj models and compared the results  (on the same project idea diffrent way of implamntaion and technique ) : https://github.com/autopawn/3d-ascii-viewer
-
+# Credits 
+https://github.com/autopawn/3d-ascii-viewer - which has a similar goal but uses a different technique.\
+Used its obj models to compare results.
