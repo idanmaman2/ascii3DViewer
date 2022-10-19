@@ -14,6 +14,7 @@ The program enables rotating the shape in all axes and moving it in space.
 
 
 # Examples
+![photo_2022-10-13_13-06-46](https://user-images.githubusercontent.com/90776557/196797061-34f308af-1948-451c-ba8c-427d041f252d.jpg)
 <img width="1470" alt="Screen Shot 2022-10-09 at 14 38 40" src="https://user-images.githubusercontent.com/90776557/194754872-243e7cfb-8e9b-411f-8470-94da61566ec1.png">
 <img width="1463" alt="Screen Shot 2022-10-09 at 14 28 08" src="https://user-images.githubusercontent.com/90776557/194754874-dcfce42c-e193-45c5-a7c0-9d491f284b72.png">
 <img width="1469" alt="Screen Shot 2022-10-09 at 14 20 33" src="https://user-images.githubusercontent.com/90776557/194754938-36d821a5-f0d1-421b-9142-80443ebb1be4.png">
