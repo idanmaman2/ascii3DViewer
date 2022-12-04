@@ -22,6 +22,7 @@
 #include <sys/poll.h>
 #include "objReader.h"
 #include "vectorM.h"
+#include "face.h"
 
 #define WIDTH 200
 #define  HEIGHT 200
@@ -82,6 +83,7 @@ typedef  struct  mapPack{
     char depth ; // max 255 depth
 
 }mapPack;
+
 void changeColor(char *  color ) {
     printf("\033[0;%s",color);
 }
@@ -145,6 +147,8 @@ void findMin(face * fc , minVer * min){
         vertex p3 =*((vertex * )getIndexVector(fc->sides_array[2]-1,min->vertex));
         double val = getZFromPlane(p1,p2,p3,min->y,min->x);
         val +=pushZ;
+        val= abs(val);
+
         if(!min->changed ||(val >= 0 &&val < min->min))
         {
             min->min=val ;
@@ -183,10 +187,13 @@ double getMinZValue(obj  data ){ // To align the 3d object to be at good startin
 
 }
 
-
+minMax * mapFaceBound(face * fc , vector * vx ){
+        return getMinMaxFace(*fc , vx);
+}
 
 
 int main() {
+
     struct angleAxsis ax2 ;
     vectorM axsis = {
             .x=0,
@@ -194,7 +201,7 @@ int main() {
             .y=0
     };
     double angle = 0;
-    obj data = getObjData("//Users//idang//CLionProjects//ascii3DViewer//models//mr-president.obj");
+    obj data = getObjData("/Users/idang/CLionProjects/ascii3DViewer/models/ninja.obj");
 
 
     printf("\x1b[2J");
@@ -204,6 +211,8 @@ int main() {
     pushZ = getMinZValue(data);
     pushZ = (pushZ < 0 ? -pushZ : 0 );
     while (true) {
+        //vector * bounds = mapIter(mapFaceBound , data.faces , data.vertexes , sizeof(minMax));
+        //minMax mainBound = getMinMaxVector(bounds);
         if (poll(&pfd, 1, 0)>0) {
             int c = getchar();
             switch(c){
@@ -303,17 +312,20 @@ int main() {
         printf("\x1b[H");
         for (double y = 0; y < HEIGHT*denX; y+=denX) {
             for (double x = 0; x < WIDTH*denY; x+=denY) {
-                minVer min;
-                min.min = INT32_MIN;
-                min.vertex = data.vertexes;
-                min.changed = false ;
-                min.y = y + pushY ;
-                min.x = x  + pushX ;
-                forEachIter(findMin, data.faces, &min);
-                mapPack  pack = map(min);
-                changeColor(pack.color);
-                printf("%3c",pack.depth);
-                fflush(stdout);
+
+                    minVer min;
+                    min.min = INT32_MIN;
+                    min.vertex = data.vertexes;
+                    min.changed = false ;
+                    min.y = y + pushY ;
+                    min.x = x  + pushX ;
+                    forEachIter(findMin, data.faces, &min);
+                    mapPack  pack = map(min);
+                    changeColor(pack.color);
+                    printf("%3c",pack.depth);
+                    fflush(stdout);
+
+
             }
             putchar(10);
         }

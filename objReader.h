@@ -8,17 +8,8 @@
 #include <stdio.h>
 #include <sys/fcntl.h>
 #include "DataStructers/vector.h"
+#include "face.h"
 
-typedef struct vertex {
-    double x ;
-    double y;
-    double z ;
-} vertex;
-
-typedef struct face {
-    size_t sidesNum ;
-    size_t * sides_array;
-} face ;
 
 typedef  struct  obj {
     vector * faces ;

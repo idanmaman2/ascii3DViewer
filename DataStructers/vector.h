@@ -82,12 +82,12 @@ int deleteVector(void * content  ,struct vector * vec ){
     return deleteIndexVector(searchVector(content,vec),vec);
 }
 
-void * deleteLastVector(struct vector * vec){
+void  deleteLastVector(struct vector * vec){
     deleteIndexVector(vec->len - 1 , vec ) ;
 
 }
 
-void * setIndexVector(size_t index , void * data , struct vector * vec){
+void  setIndexVector(size_t index , void * data , struct vector * vec){
     memcpy(vec->arr + index * vec->size , data,vec->size);
 }
 
@@ -119,6 +119,7 @@ struct vector * cloneVector (struct vector * vec){
     memcpy(vecClone->arr,vec->arr,vec->size*vec->len);
     vecClone->len=vec->len;
     vecClone->size=vec->size;
+    return vecClone ;
 }
 
 void addNVector(void * array , size_t len , struct vector * vec){
@@ -128,7 +129,7 @@ void addNVector(void * array , size_t len , struct vector * vec){
 }
 
 
-vector *  mapIter(void *  (*func )(void * param , void * arg ) , struct iter * it , void * ds,void * arg  , size_t size ){
+vector *  mapIter(void *  (*func )(void * param , void * arg ) , struct iter * it ,void * arg  , size_t size ){
     it->reset(it->current,it);
     vector * ve = createVector(size);
     while(it->hasNext(it->current,it)){
